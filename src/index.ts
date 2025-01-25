@@ -1,4 +1,4 @@
-import { ApiClient } from './client';
+import { ApiClient } from './Client';
 import { AuthAPI } from './api/auth';
 import { PostsAPI } from './api/posts';
 import { CommentsAPI } from './api/comments';

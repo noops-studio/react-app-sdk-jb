@@ -1,4 +1,4 @@
-import { ApiClient } from '../client';
+import { ApiClient } from '../Client';
 
 export class FeedAPI {
   constructor(private client: ApiClient) {}

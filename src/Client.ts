@@ -1,7 +1,8 @@
-import axios, { AxiosInstance } from 'axios';
+// src/client.ts
+import axios from 'axios';
 
 export class ApiClient {
-  private client: AxiosInstance;
+  private client;
   private token: string | null = null;
 
   constructor(baseURL: string, headers: Record<string, string> = {}) {
@@ -9,6 +10,7 @@ export class ApiClient {
 
     this.client.interceptors.request.use((config) => {
       if (this.token) {
+        config.headers = config.headers || {};
         config.headers.Authorization = `Bearer ${this.token}`;
       }
       return config;
@@ -27,19 +29,23 @@ export class ApiClient {
     this.token = token;
   }
 
-  async get<T = any>(url: string) {
-    return await this.client.get<T>(url);
+  async get<T = any>(url: string): Promise<T> {
+    const response = await this.client.get(url);
+    return response.data as T;
   }
 
-  async post<T = any>(url: string, data: any) {
-    return await this.client.post<T>(url, data);
+  async post<T = any>(url: string, data: any = {}): Promise<T> {
+    const response = await this.client.post(url, data);
+    return response.data as T;
   }
 
-  async patch<T = any>(url: string, data: any) {
-    return await this.client.patch<T>(url, data);
+  async patch<T = any>(url: string, data: any): Promise<T> {
+    const response = await this.client.patch(url, data);
+    return response.data as T;
   }
 
-  async delete<T = any>(url: string) {
-    return await this.client.delete<T>(url);
+  async delete<T = any>(url: string): Promise<T> {
+    const response = await this.client.delete(url);
+    return response.data as T;
   }
 }

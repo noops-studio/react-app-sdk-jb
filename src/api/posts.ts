@@ -1,4 +1,4 @@
-import { ApiClient } from '../client';
+import { ApiClient } from '../Client';
 export class PostsAPI {
   constructor(private client: ApiClient) {}
 
