@@ -1,7 +1,7 @@
 {
   "name": "@noops-studio/react-app-sdk-jb",
-  "version": "1.0.0",
-  "description": "sdk for backend",
+  "version": "1.0.1",
+  "description": "SDK for backend",
   "homepage": "https://github.com/noops-studio/react-app-sdk-jb#readme",
   "bugs": {
     "url": "https://github.com/noops-studio/react-app-sdk-jb/issues"
@@ -11,9 +11,15 @@
     "url": "git+https://github.com/noops-studio/react-app-sdk-jb.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "Your Name <your.email@example.com>",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build"

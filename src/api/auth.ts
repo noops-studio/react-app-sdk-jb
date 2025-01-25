@@ -10,6 +10,7 @@ export class AuthAPI {
     };
     const response = await this.client.post(pathMap[variant], { username, password });
     if (variant === 'standard') {
+      console.log(response)
       this.client.setToken(response.jwt);
     }
     return response;
